@@ -1,7 +1,7 @@
 Samourai Dojo Interaction Script
 ================================
 
-Script has only been tested using:  
+Script has been tested using:  
   Ubuntu 18.04  
   Dojo v1.2.0  
 
