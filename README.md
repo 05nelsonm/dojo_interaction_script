@@ -13,7 +13,7 @@ Script has been tested using:
 
 3) Open the script up in an editor by executing in terminal:  `nano control_dojo.sh`  
 
-4) Read the instructions at the top of the script
+4) Follow the instructions at the top of the script
 
 4) Make the script executable by executing in terminal: `chmod +x control_dojo.sh`  
 
