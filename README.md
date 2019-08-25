@@ -5,16 +5,32 @@ Script has only been tested using:
   Ubuntu 18.04  
   Dojo v1.2.0  
 
-## Setup Instructions
+### Setup Instructions
 
 1) Clone or download/extract this project to a directory of your liking  
-2) Open a terminal and navigate to that directory  
-3) Open the script up in an editor by executing in terminal: `nano control_dojo.sh`  
-4) Read the instructions at the top of the script
-4) Make the script executable by executing in terminal: `chmod +x control_dojo.sh`  
-5) Run the script by executing in terminal: `./control_dojo.sh`
 
-## Using the script remotely via ssh
+2) Open a terminal and navigate to that directory  
+
+3) Open the script up in an editor by executing in terminal:  `nano control_dojo.sh`  
+
+4) Read the instructions at the top of the script
+
+4) Make the script executable by executing in terminal: `chmod +x control_dojo.sh`  
+
+5) Run the script by executing in terminal: `./control_dojo.sh`  
+
+### Add Application Launcher Icon
+
+1) Navigate to the directory where you cloned or downloaded/extracted this project to
+
+2) Open the `.desktop` file up in an editor by executing in terminal: `nano samourai-dojo.desktop`  
+
+3) Update the ***two*** `***starred***` fields with the correct information  
+	***Note:*** must use full paths, such as `/home/matthew/dojo_dir/`  
+
+4) Move the `.desktop` file into your applications directory: `mv samourai-dojo.desktop /usr/share/applications/`
+
+### Using the script remotely via ssh
 
 I set it up to be used with passwordless root login via ssh, also, as you need sudo privledges to
 interact with the ./dojo [commands]. I did it so that I can control the Dojo from my Host machine.
