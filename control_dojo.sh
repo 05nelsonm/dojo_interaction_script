@@ -19,8 +19,6 @@ PATH_T0_DOJO_DOT_SH="/home/path/to/dojo_dir/docker/my-dojo/"
 
 EXTERNAL_BITCOIND="no"
 
-# And change your `/home/username/.bitcoin` directory
-
 #    ***** example entry: "/home/matthew/.bitcoin/" *****
 
 BITCOIN_DIR="/home/path/to/.bitcoin/"
