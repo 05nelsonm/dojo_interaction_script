@@ -33,19 +33,19 @@ If you wanted to use it remotely via SSH, below are haggard instructions for set
                                                          |-------------------> # VM 1 #
                                                          |     pubkey          ########
 ##########      pubkey + 2FA      ################       |                  UFW (Host machine &
-# Laptop # ---------------------> # Host Machine # <-----|				                other VMs)
+# Laptop # ---------------------> # Host Machine # <-----|			other VMs)
 ##########        user pass       ################       |
                               UFW (Laptop & VMs Only)    |   passwordless      ########
                                                          |-------------------> # VM 2 #
                                                          |      pubkey         ########
                                                          |                  UFW (Host machine &
-                                                         | 				                other VMs)
+                                                         | 			other VMs)
                                                          | 
                                                          |    passwordless     ########
                                                          |-------------------> # VM 3 #   
                                                          |      pubkey         ########
                                                          |                  UFW (Host machine &
-                                                        etc.			                other VMs)
+                                                        etc.			other VMs)
 
 
 
