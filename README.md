@@ -28,7 +28,7 @@ Script has been tested using:
 3) Update the ***two*** `***starred***` fields with the correct information  
 	***Note:*** must use full paths, such as `/home/matthew/dojo_dir/`  
 
-4) Move the `.desktop` file into your applications directory: `mv samourai-dojo.desktop /usr/share/applications/`
+4) Move the `.desktop` file into your applications directory: `sudo mv samourai-dojo.desktop /usr/share/applications/`
 
 ### Using the script remotely via ssh
 
