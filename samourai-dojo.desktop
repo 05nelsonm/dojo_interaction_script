@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Version=1.0
+Terminal=false
+Exec=gnome-terminal --title="Samourai Dojo" --geometry=120x25-0+0 --zoom=0.8 -- bash -c 'cd ***/home/user/path/to/script/***; ./control_dojo.sh; $SHELL'
+Name=Samourai Dojo
+Icon=***/home/user/path/to***/samourai_logo.png
+Name[en_US]=Samourai Dojo
