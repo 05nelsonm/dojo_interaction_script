@@ -11,6 +11,10 @@ Script has been tested using:
 	`ctrl+alt+t`  
 
 2) Navigate to a directory of where you want this script to live  
+	`cd ~/your/directory`  
+	
+	OR, create a new `scripts` directory
+	
 	`if [ -d ~/scripts ]; then cd ~/scripts; else mkdir ~/scripts; cd ~/scripts; fi`  
 
 3) Clone this repo  
