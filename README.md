@@ -91,8 +91,8 @@ $ if [ -d /root/.ssh ]; then nano /root/.ssh/authorized_keys; else mkdir /root/.
 		## Save and exit
 		ctrl+x --> y --> return
 
-## Correct permissions
-$ chmod 600 /root/.ssh/authorized_keys
+## Correct permissions && ensure correct ownership
+$ chmod 600 /root/.ssh/authorized_keys && chown root:root /root/.ssh/authorized_keys
 
 ## Log out of root user
 $ exit
@@ -109,8 +109,8 @@ $ nano ~/.ssh/authorized_keys
 	### Save and exit
 	ctrl+x --> y --> return
 
-## Correct permissions
-$ sudo chmod 600 ~/.ssh/authorized_keys
+## Correct permissions && ensure correct ownership
+$ sudo chmod 600 ~/.ssh/authorized_keys && sudo chown $USER:$USER ~/.ssh/authorized_keys
 
 ## Configure sshd_config on Dojo machine
 ## If you login to the machine that runs Dojo from anywhere else, you will need to add that machine's pubkyes to
