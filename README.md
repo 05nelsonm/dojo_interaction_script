@@ -7,28 +7,38 @@ Script has been tested using:
 
 ### Setup Instructions
 
-1) Clone or download/extract this project to a directory of your liking  
+1) Open a terminal up  
+	`ctrl+alt+t`  
 
-2) Open a terminal and navigate to that directory  
+2) Navigate to a directory of where you want this script to live  
+	`if [ -d ~/scripts ]; then cd ~/scripts; else mkdir ~/scripts; cd ~/scripts; fi`  
 
-3) Open the script up in an editor by executing in terminal:  `nano control_dojo.sh`  
+3) Clone this repo  
+	`git clone https://github.com/05nelsonm/dojo_interaction_script.git && cd dojo_interaction_script`  
 
-4) Follow the instructions at the top of the script
+4) Open the script up in an editor by executing in terminal  
+	`nano control_dojo.sh`  
 
-4) Make the script executable by executing in terminal: `chmod +x control_dojo.sh`  
+5) Follow the instructions at the top of the script, entering the necessary information  
 
-5) Run the script by executing in terminal: `./control_dojo.sh`  
+6) Make the script executable by executing in terminal  
+	`chmod +x control_dojo.sh`  
+
+7) Run the script by executing in terminal  
+	`./control_dojo.sh`  
 
 ### Add Application Launcher Icon
 
-1) Navigate to the directory where you cloned or downloaded/extracted this project to
+1) Navigate to the directory where you cloned or downloaded/extracted this project to  
 
-2) Open the `.desktop` file up in an editor by executing in terminal: `nano samourai-dojo.desktop`  
+2) Open the `.desktop` file up in an editor by executing in terminal  
+	`nano samourai-dojo.desktop`  
 
 3) Update the ***two*** `***starred***` fields with the correct information  
 	***Note:*** must use full paths, such as `/home/matthew/dojo_dir/`  
 
-4) Move the `.desktop` file into your applications directory: `sudo mv samourai-dojo.desktop /usr/share/applications/`
+4) Move the `.desktop` file into your applications directory  
+	`sudo mv samourai-dojo.desktop /usr/share/applications/`  
 
 ### Using the script remotely via ssh
 
