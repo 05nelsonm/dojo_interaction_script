@@ -46,9 +46,9 @@ Script has been tested using:
 
 ### Using the script remotely via ssh
 
-I set it up to be used with passwordless root login via ssh, also, as you need sudo privledges to
+I set it up to be used with passwordless login via ssh, also, as you need sudo privledges to
 interact with the ./dojo [commands]. I did it so that I can control the Dojo from my Host machine.
-This option may not be for you if you don't want to permit root login via ssh to the machine running
+This option may not be for you if you don't want to permit passwordless login via ssh to the machine running
 your Dojo.
 
 I have my VMs set up with passwordless pubkeys and UFW so that my host is the only machine that can
@@ -79,7 +79,7 @@ If you wanted to use it remotely via SSH, below are haggard instructions for set
 
 
 
-## **On the machine that runs Dojo, as non-root user** ##
+## **On your remote machine (the computer not running Dojo)**
 
 ## If you have already generated passwordless ssh keys, go to STEP 2
 ## STEP 1:
@@ -95,47 +95,32 @@ $ cat ~/.ssh/id_rsa.pub
 
 		## Copy the pubkey
 
-## Add your non-root user as an authorized login to your root user on your Dojo
+## Add your remote machine user public key as an authorized login to the primary user on your Dojo
+##**On your machine that is running Dojo**
 ## STEP 3:
-$ sudo -s
-$ if [ -d /root/.ssh ]; then nano /root/.ssh/authorized_keys; else mkdir /root/.ssh; nano /root/.ssh/authorized_keys; fi
+$ if [ -d ~/$USER/.ssh ]; then nano ~/$USER/.ssh/authorized_keys; else mkdir ~/$USER/.ssh; nano ~/$USER/.ssh/authorized_keys; fi
 
-		##Paste your non-root user's pubkey into your root user's authorized_key file
+		##Paste your non-root user's pubkey into the Dojo machine's user's authorized_key file
 
 		## Save and exit
 		ctrl+x --> y --> return
 
 ## Correct permissions && ensure correct ownership
-$ chmod 600 /root/.ssh/authorized_keys && chown root:root /root/.ssh/authorized_keys
+$ sudo chmod 600 ~/$USER/.ssh/authorized_keys && sudo chown $USER:$USER ~/$USER/.ssh/authorized_keys
 
-## Log out of root user
-$ exit
-
-## On your laptop or remote machine that you login to your Dojo with,
+## On your remote machine that you will login to your Dojo machine with,
 ## repeate STEP 1 & STEP 2, then do STEP 3 again for your Dojo root user
 
-## Add your laptop or remote machine's pubkeys to the authorized_keys of your non-root Dojo user
-## STEP 4:
-$ nano ~/.ssh/authorized_keys
-
-	### Paste your laptop's pubkey into your non-root user's authorized_key file
-
-	### Save and exit
-	ctrl+x --> y --> return
-
-## Correct permissions && ensure correct ownership
-$ sudo chmod 600 ~/.ssh/authorized_keys && sudo chown $USER:$USER ~/.ssh/authorized_keys
-
 ## Configure sshd_config on Dojo machine
-## If you login to the machine that runs Dojo from anywhere else, you will need to add that machine's pubkyes to
+## If you login to the machine that runs Dojo from anywhere else, you will need to add that machine's user's pubkyes to
 ## the user's authorized_keys file, otherwise you will be locked out...
 
 $ sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 $ sudo nano /etc/ssh/sshd_config
 
 	## Alterations to /etc/ssh/sshd_config:
-	Port 2222 # <-- only if you want to change it, make sure to update UFW and the script above...
-	PermitRootLogin yes
+	Port 2222 # <-- only if you want to change it, make sure to update UFW as well as the control_dojo.sh script...
+	PermitRootLogin no
 	PubkeyAuthentication yes
 	PasswordAuthentication no
 				
@@ -145,10 +130,11 @@ $ sudo nano /etc/ssh/sshd_config
 ## Restart sshd service
 $ sudo service sshd restart
 
-## DO NOT EXIT OUT OF THE TERMINAL CURRENTLY LOGGED INTO YOUR DOJO MACHINE
+## DO NOT EXIT OUT OF THE TERMINAL CURRENTLY LOGGED INTO YOUR DOJO MACHINE IN A SEPERATE TERMINAL FROM YOUR REMOTE
+## MACHINE TO ENSURE EVERYTHING WORKS! You'll be locked out, and if you're running things headless, you'll have to
+## hook up a monitor and keyboard to fix it.
 
 ## On a remote machine you set this up to work with, open a terminal and try to login to the Dojo via ssh.
-## Be sure to try loging into both Dojo's non-root & root users
 
 ## Done
 ```
