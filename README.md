@@ -108,9 +108,6 @@ $ if [ -d ~/$USER/.ssh ]; then nano ~/$USER/.ssh/authorized_keys; else mkdir ~/$
 ## Correct permissions && ensure correct ownership
 $ sudo chmod 600 ~/$USER/.ssh/authorized_keys && sudo chown $USER:$USER ~/$USER/.ssh/authorized_keys
 
-## On your remote machine that you will login to your Dojo machine with,
-## repeate STEP 1 & STEP 2, then do STEP 3 again for your Dojo root user
-
 ## Configure sshd_config on Dojo machine
 ## If you login to the machine that runs Dojo from anywhere else, you will need to add that machine's user's pubkyes to
 ## the user's authorized_keys file, otherwise you will be locked out...
